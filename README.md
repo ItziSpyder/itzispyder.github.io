@@ -1,1 +1,1 @@
-<div class="testing">ok</div>
+<div class="testing" align="center">ok</div>
