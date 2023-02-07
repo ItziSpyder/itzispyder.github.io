@@ -1,5 +1,6 @@
-# Hello there! My name is ImproperIssues,
-About me
+![ImproperBanner](/assets/banners/ImproperBanner.png)
+
+
 
 ### I am a small creator!
 - :beginner: I am a small beginner plugin creator
@@ -13,6 +14,11 @@ About me
 - `SpigotMC` [https://www.spigotmc.org/members/itzispyder.1635590/](https://www.spigotmc.org/members/itzispyder.1635590/)
 - `Linktree` [https://linktr.ee/ItziSpyder](https://linktr.ee/ItziSpyder)
 - `My Discord Server` [https://discord.gg/pmsas6yeCN](https://discord.gg/pmsas6yeCN)
+
+
+
+![ImproperProjects](/assets/banners/ImproperProjects.png)
+
 
 ### Recent Projects
 - [CombatUtils](https://github.com/ItziSpyder/CombatUtils) - *Based Server-Side Utilities for Your Minecraft Server*
