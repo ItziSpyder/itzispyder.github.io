@@ -15,7 +15,7 @@
 
 
 
-![ImproperProjects](/assets/banners/ImproperProjects.png)
+<img src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperProjects.png" style="width:70%">
 
 
 ### Recent Projects
