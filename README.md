@@ -1,4 +1,4 @@
-<img src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperBanner.png" style="width:70%; height:width/2">
+<img src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperBanner.png" style="width:70%; height:width/5">
 
 ### I am a small creator!
 - :beginner: I am a small beginner plugin creator
