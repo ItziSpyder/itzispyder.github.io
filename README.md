@@ -1,5 +1,6 @@
-![ImproperBanner](/assets/banners/ImproperBanner.png)
-
+<div>
+  <src img>https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperBanner.png</src>
+<div>
 
 
 ### I am a small creator!
