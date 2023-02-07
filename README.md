@@ -1,10 +1,10 @@
 <img src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperBanner.png" style="width:70%">
 
 ### I am a small creator!
-- :beginner: I am a small beginner plugin creator
-- :star: I love working with java in my free time
-- :coffee: I am still learning lava
-- :wave: I love talking and meeting new people! Feel free to dm me.
+- I am a small beginner plugin creator
+- I love working with java in my free time
+- I am still learning lava
+- I love talking and meeting new people! Feel free to dm me.
 
 ### My Links 
 - `Discord` ImproperIssues#4988
