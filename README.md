@@ -1,5 +1,5 @@
 <img 
-  src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperBanner.png?raw=true" 
+  src="![image](https://user-images.githubusercontent.com/114215797/217431415-474b6639-ad66-4763-8e33-4dbc161ff01c.png)" 
   style="width:70%"
 >
 
