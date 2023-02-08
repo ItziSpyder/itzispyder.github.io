@@ -1,4 +1,7 @@
-<img src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperBanner.png" style="width:70%">
+<img 
+  src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperBanner.png?raw=true" 
+  style="width:70%"
+>
 
 ### I am a small creator!
 - I am a small beginner plugin creator
@@ -15,8 +18,10 @@
 
 
 
-<img src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperProjects.png" style="width:70%">
-
+<img 
+  src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperProjects.png?raw=true" 
+  style="width:70%"
+>
 
 ### Recent Projects
 - [CombatUtils](https://github.com/ItziSpyder/CombatUtils) - *Based Server-Side Utilities for Your Minecraft Server*
