@@ -1,7 +1,17 @@
-<img 
-  src="https://user-images.githubusercontent.com/114215797/217431415-474b6639-ad66-4763-8e33-4dbc161ff01c.png" 
-  style="width:70%"
->
+# Hello there! I'm ImproperIssues!
+
+```java
+while(alive) {
+  wakeUp();
+  eat();
+  code();
+  minecraft();
+  beBased();
+  sleep();
+}
+```
+
+
 
 ### I am a small creator!
 - I am a small beginner plugin creator
@@ -17,11 +27,6 @@
 - `My Discord Server` [https://discord.gg/pmsas6yeCN](https://discord.gg/pmsas6yeCN)
 
 
-
-<img 
-  src="https://github.com/ItziSpyder/ItziSpyder.github.io/blob/main/assets/banners/ImproperProjects.png?raw=true" 
-  style="width:70%"
->
 
 ### Recent Projects
 - [CombatUtils](https://github.com/ItziSpyder/CombatUtils) - *Based Server-Side Utilities for Your Minecraft Server*
