@@ -11,6 +11,8 @@ while(alive) {
 }
 ```
 
+
+
 ### I am a small creator!
 - I am a small beginner plugin creator
 - I love working with java in my free time
@@ -30,6 +32,3 @@ while(alive) {
 - [CombatUtils](https://github.com/ItziSpyder/CombatUtils) - *Based Server-Side Utilities for Your Minecraft Server*
 - [UniVault](https://github.com/ItziSpyder/UniVault) - *Universal Vaults for Infinite Storage, Kit and NBT submission ETC*
 - [AntiMinehut](https://github.com/ItziSpyder/AntiMinehut) - *Disable, Remove, Delete... We are against Minehut's ram-costing forced plugins!*
-
-
-<p style="background-image: url(assets/images/improperissues.png);">
