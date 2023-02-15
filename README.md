@@ -1,7 +1,5 @@
 # Hello there! I'm ImproperIssues!
 
-<a href="index.html">hello</a>
-
 ```java
 while(alive) {
   wakeUp();
