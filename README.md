@@ -11,7 +11,7 @@ while(alive) {
 }
 ```
 
-<p style="background-image: url(assets/images/improperissues.png)">
+<p style="background-image: url(assets/images/improperissues.png);">
 
 
 ### I am a small creator!
