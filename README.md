@@ -16,7 +16,7 @@ while(alive) {
 ### I am a small creator!
 - I am a small beginner plugin creator
 - I love working with java in my free time
-- I am still learning lava
+- I am still learning java
 - I love talking and meeting new people! Feel free to dm me.
 
 ### My Links 
