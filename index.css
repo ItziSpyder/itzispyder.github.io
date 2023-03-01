@@ -1,0 +1,128 @@
+.main {
+    background-image: url(./resources/assets/backgrounds/digital1.png);
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-items: center;
+    scroll-behavior: smooth;
+}
+
+.banner {
+    margin-top: 75px;
+    border: 4px aquamarine;
+    border-radius: 300px;
+    border-style: ridge;
+}
+
+.banner #pfp {
+    width: 10%;
+    border-radius: 360px;
+    padding: 5px;
+    background: linear-gradient(blue,purple);
+    margin-left: 44%;
+    animation: pfp 5s linear infinite;
+}
+
+.banner #title {
+    text-align: center;
+    color: rgb(57, 74, 255);
+    font-size: 50px;
+    text-shadow: 4px 4px 4px black;
+}
+
+#bar {
+    margin-top: 10px;
+    text-align: center;
+    margin: auto;
+    border: 1px white;
+    border-style: ridge;
+    border-color: aqua;
+    width: 200px;
+    animation: bar 3s infinite;
+}
+
+.banner #intro {
+    text-align: center;
+    font-style: italic;
+    color: aquamarine;
+    max-width: 50%;
+    margin: auto;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-shadow: 4px 4px 4px black;
+}
+
+.showcase {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.showcase .projects {
+    text-align: center;
+    margin: auto;
+    border: 1px black solid;
+    width: 30%;
+    height: 110px;
+    border-radius: 15px;
+    animation: wobble 1s linear infinite;
+    background: linear-gradient(rgb(21, 2, 107),rgb(0, 0, 0));
+    margin-top: 10px;
+}
+
+.showcase #invite {
+    border-radius: 15px;
+    width: 30%;
+    height: 110px;
+    animation: wobble 1s linear infinite;
+}
+
+@keyframes wobble {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+    33% {
+        transform: rotate(1deg) scale(1.05);
+    }
+    66% {
+        transform: rotate(-1deg) scale(1);
+    }
+    100% {
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes bar {
+    0% {
+        transform: scaleX(0);
+    }
+    50% {
+        transform: scaleX(5);
+    }
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes pfp {
+    0% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+    25% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1) rotate(-360deg);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1) rotate(360);
+        opacity: 1;
+    }
+    85% {
+        transform: scale(1.5) rotate(0);
+        opacity: 0;
+    }
+}
+

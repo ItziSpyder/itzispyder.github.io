@@ -1,0 +1,77 @@
+.main {
+    background-image: url("./resources/assets/backgrounds/digital2.png");
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.banner {
+    text-align: center;
+    margin: auto;
+    border: 3px aqua solid;
+    border-radius: 100px;
+    width: 85%;
+    height: 200px;
+    margin-top: 75px;
+    margin-bottom: 50px;
+}
+
+.banner #title {
+    padding-top: 50px;
+    font-size: 40px;
+    color: rgb(127, 140, 255);
+    text-shadow: 4px 4px 4px black;
+}
+
+.show {
+    text-align: center;
+    margin: auto;
+}
+
+#project-link {
+    margin: 15px;
+    border: 1px black solid;
+    border-radius: 15px;
+    width: 30%;
+    height: 160px;
+    background: linear-gradient(black,white);
+    padding: 2px;
+    animation: wobble 3s linear infinite;
+}
+
+#bar {
+    margin-top: 10px;
+    text-align: center;
+    margin: auto;
+    border: 1px white;
+    border-style: ridge;
+    border-color: aqua;
+    width: 200px;
+    animation: bar 3s infinite;
+}
+
+@keyframes wobble {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+    33% {
+        transform: rotate(1deg) scale(1.05);
+    }
+    66% {
+        transform: rotate(-1deg) scale(1);
+    }
+    100% {
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes bar {
+    0% {
+        transform: scaleX(0);
+    }
+    50% {
+        transform: scaleX(5);
+    }
+    100% {
+        transform: scaleX(0);
+    }
+}
