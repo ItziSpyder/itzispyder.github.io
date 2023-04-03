@@ -1,7 +1,7 @@
 <div align="center">
     <h1 style="font-size: large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
         <a href="https://itzispyder.github.io/" style="color:rgb(0, 149, 149); font-size: 40px;">
-            <img src="./resources/assets/images/improperissues.png" style="width: 10%; border-radius: 100px; background-color: rgba(59, 59, 59, 0.721); border-color: aqua; border-style:outset;">
+            <img src="./assets/images/improperissues.png" style="width: 10%; border-radius: 100px; background-color: rgba(59, 59, 59, 0.721); border-color: aqua; border-style:outset;">
             Visit my github page!
         </a>
     </h1>
