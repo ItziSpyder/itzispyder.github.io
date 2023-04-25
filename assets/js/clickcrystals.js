@@ -9,8 +9,11 @@ const cardDownload = doc.querySelector('.projects .download');
 const cardDiscord = doc.querySelector('.projects .discord');
 const cardGithub = doc.querySelector('.projects .github');
 
+const faqScreen = doc.querySelector('.faq-screen');
+
 navHome.addEventListener('click', () => {
-    win.open('https://itzispyder.github.io/clickcrystals');
+    faqScreen.classList.remove('shown');
+    faqScreen.style.visibility = hidden;
 });
 
 navSource.addEventListener('click', () => {
@@ -18,7 +21,8 @@ navSource.addEventListener('click', () => {
 });
 
 navFaq.addEventListener('click', () => {
-    win.open('https://itzispyder.github.io/clickcrystals-faq');
+    faqScreen.classList.add('shown');
+    faqScreen.style.visibility = visible;
 });
 
 cardDownload.addEventListener('click', () => {
