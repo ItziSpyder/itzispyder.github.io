@@ -89,7 +89,7 @@
     margin: auto;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .navbar #label:hover {
@@ -235,20 +235,10 @@
     opacity: 0.5;
 }
 
-
-@keyframes gradient {
-    from, to {
-        background-position: 0%, -100%;
-    }
-    50% {
-        background-position: 100%, -100%;
-    }
-}
-
 .projects {
     justify-content: center;
     text-align: center;
-    margin-top: 120px;
+    margin-top: 12%;
 }
 
 #display {
@@ -261,6 +251,8 @@
     height: 200px;
     padding: 10px;
     backdrop-filter: blur(10px);
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #display:hover {
@@ -282,6 +274,52 @@
     transform: translateY(40px);
 }
 
+.credits {
+    justify-content: center;
+    text-align: center;
+    margin: 10%;
+}
+
+.credits #box {
+    display: inline-block;
+    background-color: rgb(181, 181, 181);
+    box-shadow: 3px 3px 10px black;
+    border-radius: 10px;
+    width: 300px;
+    height: 500px;
+    padding: 5px;
+    backdrop-filter: blur(10px);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.credits #box:hover {
+    box-shadow: 5px 5px 20px black;
+}
+
+.credits #header {
+    font-size: 50px;
+    background: linear-gradient(90deg,rgb(241, 255, 255),rgb(9, 249, 249));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.credits #box #icon {
+    margin-top: 50px;
+    width: 100px;
+    border: 3px aqua solid;
+    border-radius: 30px;
+    border-style: outset;
+}
+
+.credits #box #info {
+    text-align: center;
+    margin: auto;
+    width: 280px;
+    word-wrap: break-word;
+}
+
 @keyframes slide {
     from, to {
         transform: translateX(0%) translateY(0%) scale(1);
@@ -297,5 +335,14 @@
     }
     50% {
         transform: translateX(400%) translateY(-360%);
+    }
+}
+
+@keyframes gradient {
+    from, to {
+        background-position: 0%, -100%;
+    }
+    50% {
+        background-position: 100%, -100%;
     }
 }
