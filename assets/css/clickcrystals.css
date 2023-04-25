@@ -277,11 +277,12 @@
 .credits {
     justify-content: center;
     text-align: center;
-    margin: 10%;
+    margin-top: 10%;
 }
 
 .credits #box {
-    display: inline-block;
+    z-index: -9995;
+    display: inline-table;
     background-color: rgb(181, 181, 181);
     box-shadow: 3px 3px 10px black;
     border-radius: 10px;
