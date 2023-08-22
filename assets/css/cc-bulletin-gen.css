@@ -5,7 +5,7 @@
 }
 
 #output {
-    top: 0;
+    top: 10px;
     left: 10%;
     position: fixed;
     box-shadow: black 5px 5px 5px;
@@ -19,6 +19,19 @@
     padding-top: 10px;
 }
 
+.intro {
+    text-align: center;
+    margin: auto;
+    margin-top: 140px;
+    padding-bottom: 20px;
+}
+
+.intro .desc {
+    text-align: center;
+    margin: auto;
+    max-width: 60%;
+}
+
 .ann {
     box-shadow: black 5px 5px 5px;
     border-radius: 10px;
@@ -26,7 +39,6 @@
     display: grid;
     text-align: center;
     margin: auto;
-    margin-top: 220px;
     margin-bottom: 10px;
     background-color: gray;
     width: 30%;
@@ -63,7 +75,8 @@
     height: fit-content;
 }
 
-.ann .field-remove {
+.field_remove {
+    visibility: visible;
     width: 25px;
     height: 25px;
     background-color: red;
@@ -71,7 +84,7 @@
     cursor: pointer;
 }
 
-.ann .field-new {
+.field_new {
     width: 25px;
     height: 25px;
     background-color: rgba(8, 79, 79, 0.549);
@@ -79,10 +92,10 @@
     cursor: pointer;
 }
 
-.ann .field-remove:hover {
+.field_remove:hover {
     box-shadow: black 2px 2px 2px;
 }
 
-.ann .field-new:hover {
+.field_new:hover {
     box-shadow: black 2px 2px 2px;
 }

@@ -2,31 +2,63 @@ const doc = document;
 const out = doc.querySelector('.main .ann');
 
 printJson();
+updateListeners();
+checkButtonsVisibility();
 
 doc.addEventListener('keyup', () => {
     printJson();
 });
 
-read('.ann .field-remove').addEventListener('click', event => {
-    if (getFields().length > 1) {
-        console.log(getFields()[getFields() - 1]);
-        read('.fields').remove(getFields()[getFields() - 1]);
-        printJson();
-    }
+doc.addEventListener('mouseup', () => {
+    checkButtonsVisibility();
 });
 
-read('.ann .field-new').addEventListener('click', event => {
-    var og = getFields()[getFields().length - 1];
-    var clone = og.cloneNode(true);
-    var main = read('.fields');
+function checkButtonsVisibility() {
+    var buttons = doc.querySelectorAll('.field_remove');
 
-    clone.setAttribute('id', 'field_' + (getFields().length + 1));
-    clone.querySelector('#field-title').value = og.querySelector('#field-title').value;
-    clone.querySelector('#field-desc').value = og.querySelector('#field-desc').value;
+    buttons.forEach(button => {
+        button.style.visibility = getFields().length > 1 ? 'visible' : 'hidden';
+    });
+}
 
-    main.append(clone);
-    printJson();
-});
+function updateListeners() {
+    var removals = doc.querySelectorAll('.field_remove');
+    var addition = doc.querySelectorAll('.field_new');
+
+    removals.forEach(button => {
+        button.addEventListener('mousedown', event => {
+            var cur = event.target;
+            var par = cur.parentNode;
+        
+            if (getFields().length > 1) {
+                par.remove(cur);    
+            }
+            printJson();
+        });
+    });
+
+    addition.forEach(button => {
+        if (button.classList.contains('hasCloningListener')) {
+            return;
+        }
+
+        button.classList.add('hasCloningListener');
+        button.addEventListener('mousedown', () => {
+            var og = getFields()[getFields().length - 1];
+            var clone = og.cloneNode(true);
+            var main = read('.fields');
+        
+            clone.setAttribute('id', 'field_' + (getFields().length + 1));
+            clone.querySelector('#field-title').value = '';
+            clone.querySelector('#field-desc').value = '';
+            clone.querySelector('.field_new').classList.remove('hasCloningListener');
+        
+            main.append(clone);
+            printJson();
+            updateListeners();
+        });
+    });
+}
 
 function printJson() {
     var c = ", ";
@@ -34,7 +66,7 @@ function printJson() {
     var desc = "\"desc:\": \"" + read('.ann #ann-desc').value + "\"";
     var fields = "\"fields\": ["
 
-    for (var i = 0; i < doc.querySelectorAll('.field').length; i++) {
+    for (var i = 0; i < getFields().length; i++) {
         var field = doc.querySelectorAll('.field')[i];
         var fTitle = field.querySelector('.field #field-title').value;
         var fDesc = field.querySelector('.field #field-desc').value;
@@ -43,7 +75,7 @@ function printJson() {
 
         var fieldJson = "{" + fTitleName + c + fDescName + "}"; 
         fields += fieldJson;
-        if (i < doc.querySelectorAll('.field').length - 1) {
+        if (i < getFields().length - 1) {
             fields += c;
         }
     }
