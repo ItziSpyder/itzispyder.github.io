@@ -1,0 +1,189 @@
+.main {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: rgb(0, 92, 92);
+}
+
+.nav {
+    z-index: 999;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 55px;
+    background-color: rgb(10, 144, 198);
+    box-shadow: rgb(38, 38, 38) 0px 5px 5px;
+}
+
+.nav .bar {
+    text-align: center;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: fit-content;
+}
+
+.nav .bar .link {
+    font-size: 25px;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.nav .bar .link:hover {
+    text-shadow: black 5px 5px 5px;
+}
+
+.nav .icon #img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    transform: rotateZ(-12deg);
+    padding: 2px;
+    padding-left: 10px;
+}
+
+.banner {
+    position: absolute;
+    z-index: 998;
+    top: 0;
+    left: 0;
+    margin-top: 50px;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(90deg, rgb(0, 97, 97), rgb(8, 209, 254));
+    box-shadow: black 0px 5px 5px;
+}
+
+.banner .title {
+    padding-top: 20px;
+    text-align: center;
+    margin: auto;
+    font-size: 60px;
+}
+
+.banner .desc {
+    text-align: center;
+    font-size: 25px;
+}
+
+.fields {
+    top: 0;
+    left: 0;
+    z-index: 997;
+    position: relative;
+    margin: auto;
+    margin-top: 300px;
+    display: grid;
+    grid: auto;
+    width: 100%;
+}
+
+.field {
+    margin: auto;  
+    margin-bottom: 20px; 
+    background: rgb(66, 66, 66);
+    border-radius: 20px;
+    width: 60%;
+    padding: 20px;
+    box-shadow: black 5px 2px 2px;
+}
+
+.field .title {
+    text-align: center;
+    margin: auto;
+}
+
+.gallery {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.gallery .list {
+    width: fit-content;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 510px 510px;
+    grid-template-rows: 260px 260px 260px;
+}
+
+.gallery .list #img {
+    width: 500px;
+    height: 250px;
+    border: white 1px solid;
+    border-radius: 10px;
+}
+
+.link-icons {
+    top: 0;
+    left: 0;
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.link-icons .grid {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: fit-content;
+}
+
+.link-icons .grid .img {
+    width: 120px;
+    border-radius: 360px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.link-icons .grid .img:hover {
+    box-shadow: black 5px 5px 5px;
+}
+
+.links {
+    position: relative;
+    margin: auto;
+    margin-top: 80px;
+    width: 100%;
+}
+
+.links .title {
+    text-align: center;
+    font-size: 20px;
+}
+
+.links .list {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto;
+    width: fit-content;
+    color: aqua;
+    font-size: 20px;
+    border: rgb(59, 101, 255) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.credits {
+    top: 0;
+    left: 0;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto;
+    grid-template-rows: 20px 20px 20px 20px;
+    margin-top: 70px;
+}
+
+.credits .list {
+    color: aqua;
+}
