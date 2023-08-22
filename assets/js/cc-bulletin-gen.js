@@ -1,6 +1,8 @@
 const doc = document;
 const out = doc.querySelector('.main .ann');
 
+read('#field-title').value = '&bField Title';
+read('#field-desc').value = 'Field Description <n>New line <n><n>Two lines down';
 printJson();
 updateListeners();
 checkButtonsVisibility();
