@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClickCrystals Bulletin Generator</title>
+    <link rel="stylesheet" href="./assets/css/cc-bulletin-gen.css">
+    <link rel="shortcut icon" href="./assets/images/clickcrystals.png">
 </head>
-<body>
-    
+<body class="main">
+    <textarea name="output" id="output" cols="30" rows="10"></textarea>
+    <div class="ann">
+        <span class="field-remove">x</span>
+        <span class="field-new">+</span>
+        <h3 class="header">Announcement Header</h3>
+        <textarea name="ann-title" id="ann-title" cols="20" rows="1">Announcement Title</textarea>
+        <textarea name="ann-desc" id="ann-desc" cols="20" rows="1">Announcement Description</textarea>
+    </div>
+    <div class="fields">
+        <div id="field_1" class="field">
+            <h3 class="header">Field</h3>
+            <textarea name="field-title" id="field-title" cols="20" rows="1">Field Title</textarea>
+            <textarea name="field-desc" id="field-desc" cols="20" rows="1">Field Description</textarea>
+        </div>
+    </div>
 </body>
+<script src="./assets/js/cc-bulletin-gen.js"></script>
 </html>
