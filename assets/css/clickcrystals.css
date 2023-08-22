@@ -115,8 +115,8 @@
 .gallery .list #img {
     width: 500px;
     height: 250px;
-    border: white 1px solid;
     border-radius: 10px;
+    box-shadow: black 5px 2px 2px;
 }
 
 .link-icons {
