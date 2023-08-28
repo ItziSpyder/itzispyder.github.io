@@ -64,16 +64,16 @@ function updateListeners() {
 
 function printJson() {
     var c = ", ";
-    var title = "\"title:\": \"" + read('.ann #ann-title').value + "\"";
-    var desc = "\"desc:\": \"" + read('.ann #ann-desc').value + "\"";
+    var title = "\"title\": \"" + read('.ann #ann-title').value + "\"";
+    var desc = "\"desc\": \"" + read('.ann #ann-desc').value + "\"";
     var fields = "\"fields\": ["
 
     for (var i = 0; i < getFields().length; i++) {
         var field = doc.querySelectorAll('.field')[i];
         var fTitle = field.querySelector('.field #field-title').value;
         var fDesc = field.querySelector('.field #field-desc').value;
-        var fTitleName = "\"title:\": \"" + fTitle + "\"";
-        var fDescName = "\"desc:\": \"" + fDesc + "\"";
+        var fTitleName = "\"title\": \"" + fTitle + "\"";
+        var fDescName = "\"desc\": \"" + fDesc + "\"";
 
         var fieldJson = "{" + fTitleName + c + fDescName + "}"; 
         fields += fieldJson;
