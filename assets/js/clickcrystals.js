@@ -9,26 +9,17 @@ function getAll(path) {
     return d.querySelectorAll(path);
 }
 
-get('#github').addEventListener('click', () => {
-    win.open('https://github.com/itzispyder/clickcrystals');
-});
+function setLink(path, link) {
+    get(path).addEventListener('click', () => win.open(link));
+}
 
-get('#download').addEventListener('click', () => {
-    win.open('https://modrinth.com/mod/clickcrystals');
-});
+setLink('#github', "https://github.com/itzispyder/clickcrystals");
+setLink('#download', "https://modrinth.com/mod/clickcrystals");
+setLink('#discord', "https://discord.gg/tMaShNzNtP");
 
-get('#discord').addEventListener('click', () => {
-    win.open('https://discord.gg/tMaShNzNtP');
-});
+setLink('.points #download_1_20_1', "https://modrinth.com/mod/clickcrystals/version/1.20.1-1.0.2");
+setLink('.points #download_1_19_4', "https://modrinth.com/mod/clickcrystals/version/1.19.4-0.8.6");
+setLink('.points #download_sources', "https://github.com/itzispyder/clickcrystals/archive/refs/heads/main.zip");
+setLink('.points #download_pack', "https://modrinth.com/resourcepack/clickcrystalplus-pack");
+setLink('.points #help_info_faq', "https://github.com/itzispyder/clickcrystals/wiki");
 
-get('.link-icons #github').addEventListener('click', () => {
-    win.open('https://github.com/itzispyder/clickcrystals');
-});
-
-get('.link-icons #download').addEventListener('click', () => {
-    win.open('https://modrinth.com/mod/clickcrystals');
-});
-
-get('.link-icons #discord').addEventListener('click', () => {
-    win.open('https://discord.gg/tMaShNzNtP');
-});
