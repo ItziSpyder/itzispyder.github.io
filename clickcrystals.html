@@ -152,7 +152,11 @@
         z-index: 1;
     }
     .about .video {
+        display: inline-block;
         margin: auto;
+        margin-bottom: 50px;
+        margin-left: 25px;
+        margin-right: 25px;
         width: 400px;
     }
     .about .video img {
@@ -160,23 +164,29 @@
         box-shadow: rgb(44, 231, 235) 0 0 100px;
     }
     .about .gallery {
+        display: block;
         margin: auto;
         margin-top: 100px;
-        width: 350px;
+        width: fit-content;
+    }
+    .about .gallery .card {
+        display: inline-block;
+        margin: auto;
+        width: 400px;
     }
     .about .gallery img {
         width: 100%;
     }
     .about .gallery #left {
-        transform: translate(-15%, 0) rotateZ(-6deg);
+        transform: rotateZ(-6deg);
         box-shadow: rgb(44, 231, 235) 30px 0 100px;
     }
     .about .gallery #right {
-        transform: translate(15%, 0) rotateZ(6deg);
+        transform: rotateZ(6deg);
         box-shadow: rgb(44, 231, 235) -30px 0 100px;
     }
     .about .small-intro {
-        margin-top: 100px;
+        margin-top: 50px;
         background: gray;
         padding-top: 10px;
         padding-bottom: 50px;
@@ -221,7 +231,7 @@
         color: white;
     }
     .about .more-links {
-        margin-top: 50px;
+        margin-top: 150px;
         display: grid;
     }
     .about .more-links a {
@@ -229,7 +239,7 @@
         color: rgb(78, 133, 235);
     }
     .about .footer {
-        margin-top: 200px;
+        margin-top: 150px;
         background: rgb(49, 49, 49);
         opacity: 0.7;
         padding-bottom: 50px;
@@ -266,10 +276,17 @@
     </div>
 
     <div class="about">
-        <div class="video">
-            <a href="https://www.youtube.com/watch?v=-YCPZvNMmFo">
-                <img src="./clickcrystals/assets/cc-intro.png">
-            </a>
+        <div class="thumbnails">
+            <div class="video">
+                <a href="https://www.youtube.com/watch?v=-YCPZvNMmFo">
+                    <img src="./clickcrystals/assets/cc-video-intro.png">
+                </a>
+            </div>
+            <div class="video">
+                <a href="https://www.youtube.com/watch?v=uXRmLm-o4XA">
+                    <img src="./clickcrystals/assets/cc-video-howto.png">
+                </a>
+            </div>
         </div>
 
         <div class="small-intro">
@@ -310,9 +327,9 @@
         </div>
 
         <div class="gallery">
-            <img src="./clickcrystals/assets/cc-card-home.png" class="head" id="left">
-            <img src="./clickcrystals/assets/cc-card-search.png" class="tail" id="right">
-            <img src="./clickcrystals/assets/cc-card-toggle.png" class="tail" id="left">
+            <div class="card"><img src="./clickcrystals/assets/cc-card-home.png" id="left"></div>
+            <div class="card"><img src="./clickcrystals/assets/cc-card-search.png" id="right"></div>
+            <div class="card"><img src="./clickcrystals/assets/cc-card-toggle.png" id="left"></div>
         </div>
 
         <div class="more-links">
