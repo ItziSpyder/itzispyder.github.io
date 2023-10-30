@@ -186,23 +186,24 @@ a {
 }
 
 .footer {
-    background-color: rgb(61, 61, 61);
+    background-color: rgb(12, 12, 12);
     padding-top: 50px;
     padding-bottom: 100px;
     padding-left: 10%;
     padding-right: 10%;
 }
-.footer a {
+.footer .column a {
     color: rgb(36, 167, 167);
     text-decoration: underline;
 }
 .footer .line {
-    width: 60%;
-    border: rgb(70, 70, 70) 1px solid;
+    width: 69%;
+    border: gray 1px solid;
 }
 .footer .column {
     display: inline-block;
     padding-right: 50px;
+    transform: translateY(-20px);
 }
 .footer .sections {
     vertical-align: top;
@@ -211,7 +212,7 @@ a {
 .footer .links {
     margin-right: 50px;
     display: inline-block;
-    width: fit-content;
+    width: 120px;
     vertical-align: top;
 }
 .footer .links > .title {
@@ -219,7 +220,11 @@ a {
 }
 .footer .links > a {
     display: grid;
+    color: lightgray;
 }
-
+.footer > .column > .title > img {
+    width: 50px;
+    transform: rotateZ(-12deg) translateY(15px);
+}
 
 
