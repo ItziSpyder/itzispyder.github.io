@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickCrystals | Script</title>
+    <link rel="shortcut icon" href="./clickscript/assets/cc.png" type="image/x-icon">
+    <link rel="stylesheet" href="./clickscript/ccs/clickscript.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="intro">
+            <div class="display">
+                <h1>Create modules for ClickCrystals in under 5 lines!</h1>
+                <ul>
+                    <li>Don't need to know how to code</li>
+                    <li>Easy script reloading</li>
+                    <li>Easy to understand and learn</li>
+                    <li>Minimal syntax</li>
+                    <li>Datapack-based idea!</li>
+                </ul>
+            </div>
+        </div>
+        <div class="examples">
+            <div class="example">
+                <div class="code">
+                    <p>
+                        module create potion-swap 
+                        <br>
+                        description Switches to potions when you right click sword
+                        <br><br>
+                        on right_click if holding #sword if hotbar_has #splash_potion switch #splash_potion then input use then switch back
+                    </p>
+                </div>
+                <div class="text">
+                    <h1 class="title">Simple, understandable syntax</h1>
+                    <p class="details">Almost English-like syntax that don't require the understanding of code.</p>
+                </div>
+            </div>
+            <div class="example">
+                <div class="text">
+                    <h1 class="title">Simplistic</h1>
+                    <p class="details">Don't break your backs learning Java just for a simple feature you can make in seconds!</p>
+                </div>
+                <div class="code">
+                    <p>
+                        on totem_pop if hotbar_has #totem switch #totem then swap then switch back
+                    </p>
+                </div>
+            </div>
+            <div class="example">
+                <div class="code">
+                    <p>
+                        on right_click if holding :diamond if block_in_range #diamond_ore 64 turn_to nearest_block #diamond_ore then say Diamonds!
+                        <br><br>
+                        on right_click if holding :diamond if_not block_in_range #diamond_ore 64 say Rip no diamonds...
+                    </p>
+                </div>
+                <div class="text">
+                    <h1 class="title">Minimalistic</h1>
+                    <p class="details">No variables, no code blocks, no functions, just know the key words and that's it!</p>
+                </div>
+            </div>
+            <div class="example">
+                <div class="text">
+                    <h1 class="title">Documented</h1>
+                    <p class="details">We have everthing you need to know in this course, and on our Wiki! If you have any questions, you're invited to our Discord!</p>
+                </div>
+                <div class="code">
+                    <p>
+                        // module declaration
+                        <br>
+                        module create command-macros
+                        <br>
+                        description Command macros, add more if needed!
+                        <br><br>
+                        // module contents
+                        <br>
+                        // add more if needed 
+                        <br>
+                        on key_press j say /spawn
+                        <br>
+                        on key_press k say /home home
+                        <br>
+                        on key_press l say /dupe
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="class">
+            <div class="courses">
+                <h2>Explore courses that help you become the scripter you've dreamt of.</h2>
+                <div class="start" onclick="window.location.href = './clickscript/courses/1.html'">Start Course</div>
+                <br><br>
+                <div class="course">
+                    <p class="title"><spam class="index">1</spam> Getting Started</p>
+                    <p class="desc">Get started on scripting basics: accessing your .minecraft folder, creating script files, and reloading scripts!</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">2</spam> Basics</p>
+                    <p class="desc">Learn basic script syntax: printing in console, checking errors in logs, commenting, and more!</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">3</spam> Creating Modules</p>
+                    <p class="desc">Creating your first module: declaration, setting description, toggling, and reloading!</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">4</spam> Sending Messages</p>
+                    <p class="desc">Learn how to send messages to the client, or in global chat as a message or a command.</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">5</spam> Looping</p>
+                    <p class="desc">Learn how to repeat commands instantly, or with a period. Also learn about waiting before executing another command.</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">6</spam> Player Input</p>
+                    <p class="desc">Learn how to simulate player inputs ranging from hotkeying to walking and attacking.</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">7</spam> Player Input 2</p>
+                    <p class="desc">Learn how to rotate the client's camera slowly to a desired destination.</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">8</spam> If Conditions</p>
+                    <p class="desc">Learn about all sorts of conditions and evaluations, and chain condition calls.</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">9</spam> Event Registration</p>
+                    <p class="desc">Learn how to register event listeners using the "on" command.</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">10</spam> The "Then Chain"</p>
+                    <p class="desc">Explore how the keyword "then" can be used to execute all sorts of interesting commands in one go!</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">11</spam> Course Assessment</p>
+                    <p class="desc">Be prepared to get assessed on how well you know your material!</p>
+                </div>
+                <div class="course">
+                    <p class="title"><spam class="index">12</spam> Premade Examples</p>
+                    <p class="desc">Examples of already-made modules, based on what you've learned</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./clickscript/js/navbar.js"></script>
+</html>
