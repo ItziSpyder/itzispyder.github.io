@@ -21,7 +21,7 @@ code = `<div class="navbar" style="position: fixed; width: 100%; height: 50px; m
     }
     .content {
         box-shadow: rgb(57, 57, 57) 0 -2px 10px;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: white;
     }
     .content  .display > a {
