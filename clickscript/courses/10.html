@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | Lesson 10</title>
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="shortcut icon" href="../assets/cc.png" type="image/x-icon">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="main">
+            <div class="sections">
+                <div class="section">
+                    <h1>"Then" Chains</h1>
+                    <p>Explore how the keyword "then" can be used to execute all sorts of interesting commands in one go!</p>
+                </div>
+                <div class="section">
+                    <p>Yes, registering a new <span class="high">on</span> event can be very tedious as learned from the previous lesson. This problem can be solved with the keyword <span class="high">then</span></p>
+                </div>
+                <div class="section">
+                    <p>This keyword applies to the end of most commands without an infinite number of arguments. By infinite, I meant the commands that sends an entire message, or accepts a command line at the end.</p>
+                </div>
+                <div class="section">
+                    <p>Lets explore some commands revolving around then keywords.</p>
+                </div>
+                <div class="section">
+                    <p>Commands that support then keywords</p>
+                    <ul>
+                        <li>input</li>
+                        <li>module</li>
+                        <li>switch</li>
+                        <li>swap</li>
+                        <li>turn_to</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <p>Commands that you might think support then chains but directly executes commands instead</p>
+                    <ul>
+                        <li>if</li>
+                        <li>if_not</li>
+                        <li>wait</li>
+                        <li>on</li>
+                        <li>loop</li>
+                        <li>loop_period</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <p>Commands that definitely DO NOT support then chains</p>
+                    <ul>
+                        <li>print</li>
+                        <li>throw</li>
+                        <li>execute</li>
+                        <li>say</li>
+                        <li>send</li>
+                        <li>exit</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>Examples</h2>
+                    <p>Let's explore some examples of then chains being used.</p>
+                </div>
+                <div class="section">
+                    <code>on key_press g switch #totem then swap then switch back</code>
+                    <p>This command consists of two chains with three statements. Can you guess what they are?</p>
+                </div>
+                <div class="section">
+                    <p>If you've guessed <span class="high">switch, swap, then switch</span>, you are correct!</p>
+                </div>
+                <div class="section">
+                    <p>With then chains, a lot are possible. You can probably even create crazy modules like this one made by <span class="high">@I-No-One</span></p>
+                    <code>on key_press i if hotbar_has #firework switch :elytra then input use then switch #rocket then input jump then wait 0.2 input jump then wait 0.1 input use then send firework used</code>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+<script src="../js/lesson.js"></script>
+</html>

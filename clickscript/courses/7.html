@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | Lesson 7</title>
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="shortcut icon" href="../assets/cc.png" type="image/x-icon">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="main">
+            <div class="sections">
+                <div class="section">
+                    <h1>Player Input 2</h1>
+                    <p>Learn how to rotate the client's camera slowly to a desired destination.</p>
+                </div>
+                <div class="section">
+                    <h2>Turning the player's camera.</h2>
+                    <p>This command's name is <span class="high">turn_to</span>, and has 4 modes</p>
+                    <ul>
+                        <li>nearest_entity (specified ID)</li>
+                        <li>nearest_block (specified ID)</li>
+                        <li>any_entity</li>
+                        <li>any_block</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <p>The parenthesized part is where you specify a minecraft ID</p>
+                    <p>If the argument you've desided to use does not have a parenthesized part, you do not need to specify this extra argument.</p>
+                </div>
+                <div class="section">
+                    <p>Minecraft ID arguments were mentioned in the previous lesson. If you do not know this, we'd recommend not skipping lessons.</p>
+                </div>
+                <div class="section">
+                    <code>turn_to nearest_entity :player</code>
+                    <p>This turns to the nearest player.</p>
+                    <code>turn_to nearest_block #diamond_ore</code>
+                    <p>This turns to the nearest diamond ore.</p>
+                    <code>turn_to any_block</code>
+                    <p>This turns to the nearest block.</p>
+                    <code>turn_to any_entity</code>
+                    <p>This turns to the nearest entity.</p>
+                </div>
+                <div class="section">
+                    <h2>The after effect</h2>
+                    <p>Because this command does not snap instantly, and takes time to rotate your head, we've supplied scripters with an extra argument <span class="high">then</span>.</p>
+                </div>
+                <div class="section">
+                    <p>This argument allows the command to run another command line after the rotation is finished.</p>
+                </div>
+                <div class="section">
+                    <code>turn_to nearest_entity :player then input attack</code>
+                    <p>This turns to the nearest player then attacks it.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/lesson.js"></script>
+</html>
