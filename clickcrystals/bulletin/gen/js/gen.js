@@ -4,7 +4,7 @@ const gen = new Gen();
 outputJson();
 updateListeners();
 updateButtons();
-document.addEventListener('keydown', outputJson);
+document.addEventListener('keyrelease', outputJson);
 document.addEventListener('mouseup', updateButtons);
 
 function Gen() {
