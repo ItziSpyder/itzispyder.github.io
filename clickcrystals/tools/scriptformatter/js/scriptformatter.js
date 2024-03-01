@@ -31,3 +31,7 @@ function Page() {
         return document.querySelectorAll(selector);
     }
 }
+
+input.value = "def module foo-module; def desc \"Foo module's description\"; on module_enable { send \"Hello world!\"; } on module_disable { send \"Goodbye world!\"; }";
+outputC.value = cp.compress(input.value);
+outputD.value = cp.decompress(input.value);
