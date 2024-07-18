@@ -1,5 +1,6 @@
 
 import { Vector } from '../math/vector.js'
+import * as math from '../math/math.js'
 
 export const MODE_LINES = 0
 export const MODE_QUADS = 1
@@ -125,7 +126,7 @@ class Vertex {
         vector = quaternion.transform(vector)
 
         var focal = focalPoint.z
-        var depth = focal + vector.z
+        var depth = (focal + vector.z) * 0.00025
 
         if (depth <= 0) {
             depth = 0.00000000000000000000001

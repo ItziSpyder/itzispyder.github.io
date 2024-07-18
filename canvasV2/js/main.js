@@ -17,7 +17,7 @@ canvas.height = view[1]
 
 // vars
 
-var focalPoint = new Vector(view[0] / 2, view[1] / 2, 20)
+var focalPoint = new Vector(view[0] / 2, view[1] / 2, 0.01)
 var rotation = new Quaternion(1, 0, 0, 0)
 var camera = new Vector(0, 2, 0)
 var world = new World(camera)
@@ -30,18 +30,18 @@ var keyRight = false
 var keyForward = false
 var keyBackward = false
 var keyJump = false
+var cursorLock = true
 
 // render
 
 var buf = new Buffer.Builder(view, context)
-
-setInterval(renderFrame, 1000 / 120)
-setInterval(renderTick, 1000 / 50)
+setInterval(renderFrame, 1000 / 60)
 
 function renderFrame() {
     buf.clear()
     world.render(rotation, focalPoint, camera, buf)
     world.renderHud(context, focalPoint, camera, prevRotation[0], prevRotation[1])
+    renderTick()
 }
 
 function renderTick() {
@@ -88,7 +88,7 @@ function updatePosition() {
     camera = camera.addVec(new Vector(dir.x, dir.y, dir.z))
 }
 
-document.body.addEventListener('mousemove', e => {
+function updateMouse(e) {
     if (prevCursor[0] == null || prevCursor[1] == null) {
         prevCursor[0] = e.clientX
         prevCursor[1] = e.clientY
@@ -98,10 +98,15 @@ document.body.addEventListener('mousemove', e => {
     var deltaY = e.clientY - prevCursor[1]
     prevCursor[0] = e.clientX
     prevCursor[1] = e.clientY
-    prevRotation[0] = math.clamp(prevRotation[0] + deltaY * 0.5, -90, 90)
-    prevRotation[1] += -deltaX * 0.5
+    prevRotation[0] = math.clamp(prevRotation[0] + deltaY, -90, 90)
+    prevRotation[1] += -deltaX
     updateRotation()
+}
+
+document.body.addEventListener('contextmenu', e => {
+    e.preventDefault()
 })
+document.body.addEventListener('mousemove', updateMouse)
 document.body.addEventListener('keypress', e => {
     // console.log(e)
     switch (e.key) {
@@ -119,6 +124,9 @@ document.body.addEventListener('keypress', e => {
             break
         case ' ':
             keyJump = true
+            break
+        case 'q':
+            cursorLock = !cursorLock
             break
     }
 })

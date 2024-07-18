@@ -8,7 +8,7 @@ body {
 canvas {
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background: linear-gradient(rgb(95, 188, 188), aqua, white);
     margin: 0;
     padding: 0;
     cursor: none

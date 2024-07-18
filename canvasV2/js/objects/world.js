@@ -61,10 +61,11 @@ export class World {
         var cx = focalPoint.x
         var cy = focalPoint.y
         context.strokeStyle = 'white'
-        context.moveTo(cx - 20, cy)
-        context.lineTo(cx + 20, cy)
-        context.moveTo(cx, cy - 20)
-        context.lineTo(cx, cy + 20)
+        context.lineWidth = 2.5
+        context.moveTo(cx - 15, cy)
+        context.lineTo(cx + 15, cy)
+        context.moveTo(cx, cy - 15)
+        context.lineTo(cx, cy + 15)
         context.stroke()
     }
 
