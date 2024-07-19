@@ -65,26 +65,19 @@ function updateRotation() {
 function updatePosition() {
     var yaw = prevRotation[1]
     var dir = new Vector(0, 0, 0)
-    var horizontal = false
 
     if (keyLeft) {
         dir = dir.add(1, 0, 0)
-        horizontal = true
     }
     if (keyRight) {
         dir = dir.add(-1, 0, 0)
-        horizontal = true
     }
     if (keyForward) {
         dir = dir.add(0, 0, -1)
-        horizontal = true
     }
     if (keyBackward) {
         dir = dir.add(0, 0, 1)
-        horizontal = true
     }
-
-    var standingOn = camera.add(0, -height - 0.001, 0).round()
 
     if (keyJump) {
         dir = dir.add(0, 1, 0)
@@ -92,9 +85,6 @@ function updatePosition() {
     if (keyDescent) {
         dir = dir.add(0, -1, 0)
     }
-    // else if (world.getVoxel(standingOn.x, standingOn.y, standingOn.z) == null) {
-    //     dir = dir.add(0, -1, 0)
-    // }
 
     var quatYaw = new Quaternion(1, 0, 0, 0).rotationY(math.toRadians(-yaw))
     dir = quatYaw.transform(dir.mul(0.15, 0.15, 0.15))
@@ -143,7 +133,7 @@ document.body.addEventListener('contextmenu', e => {
 document.body.addEventListener('mousemove', updateMouse)
 document.body.addEventListener('keypress', e => {
     // console.log(e)
-    switch (e.key) {
+    switch (e.key.toLowerCase()) {
         case 'w':
             keyForward = true
             break
@@ -160,14 +150,11 @@ document.body.addEventListener('keypress', e => {
             keyJump = !e.shiftKey
             keyDescent = e.shiftKey
             break
-        case 'q':
-            cursorLock = !cursorLock
-            break
     }
 })
 document.body.addEventListener('keyup', e => {
     // console.log('release: ' + e.key)
-    switch (e.key) {
+    switch (e.key.toLowerCase()) {
         case 'w':
             keyForward = false
             break

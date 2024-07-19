@@ -21,11 +21,11 @@ export class Voxel {
         this.consumerVertices(world, vertexConsumer, this.color)
         vertexConsumer.draw(rotation, focalPoint, camera)
 
-        if (this.outline) {
-            vertexConsumer.begin(Buffer.MODE_QUAD_LINES, 5)
-            this.consumerVertices(world, vertexConsumer, 'red')
-            vertexConsumer.draw(rotation, focalPoint, camera)
-        }
+        // if (this.outline) {
+        //     vertexConsumer.begin(Buffer.MODE_QUAD_LINES, 5)
+        //     this.consumerVertices(world, vertexConsumer, 'red')
+        //     vertexConsumer.draw(rotation, focalPoint, camera)
+        // }
     }
 
     consumerVertices(world, vertexConsumer, color) {
