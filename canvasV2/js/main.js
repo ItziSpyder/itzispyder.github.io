@@ -21,7 +21,7 @@ canvas.height = view[1]
 var focalPoint = new Vector(view[0] / 2, view[1] / 2, 0.01)
 var rotation = new Quaternion(1, 0, 0, 0)
 var clientRotation = new Quaternion(1, 0, 0, 0)
-var camera = new Vector(0, 10, 0)
+var camera = new Vector(-3, 10, 0)
 var height = 2
 var world = new World(camera, 100) // world and world size
 
@@ -161,6 +161,18 @@ document.body.addEventListener('keypress', e => {
             keyRight = true
             break
         case ' ':
+            if (!toggleFlight) {
+                setTimeout(() => {
+                    if (keyJump) {
+                        keyJump = false
+                    }
+                }, 200)
+
+                if ((e.repeat || keyJump)) {
+                    keyJump = false
+                    return
+                }
+            }
             keyJump = !e.shiftKey
             keyDescent = e.shiftKey
             break

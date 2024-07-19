@@ -43,9 +43,9 @@ export class World {
         this.addVoxel(0, 3, 5)
         this.addVoxel(0, 4, 5)
 
-        this.addVoxel(0, 1, 0)
-
-        this.addVoxel(0, 3, 0)
+        for (var i = 1; i < 20; i += 2) {
+            this.addVoxel(0, i, 0)
+        }
 
         // staircase
 
