@@ -63,14 +63,24 @@ export class World {
     }
 
     render(rotation, clientRotation, focalPoint, camera, buf) {
+        var outlines = []
         for (var i = 0; i < this.voxels.length; i++) {
             var voxel = this.voxels[i]
             if (voxel == null) {
                 continue
             }
+            if (voxel.outline) {
+                outlines.push(voxel)
+                continue
+            }
+            voxel.render(this, rotation, focalPoint, camera, buf)
+        }
+        for (var i = 0; i < outlines.length; i++) {
+            var voxel = outlines[i]
             voxel.render(this, rotation, focalPoint, camera, buf)
         }
 
+        // target block raycast
         var dir = clientRotation.transform(new Vector(0, 0, -1))
         var test = []
         var target = this.raycast(camera, dir, 10, test)
@@ -104,6 +114,17 @@ export class World {
         context.fillText('Pos [' + camera.x + ', ' + camera.y + ', ' + camera.z + ']', 10, 50)
         context.fillText('Rot [' + rot.x + ', ' + rot.y + ']', 10, 70)
         context.fillText('FPS [' + this.getFps() + ']', 10, 90)
+
+        context.fillText('W - Forward', 300, 30)
+        context.fillText('A - Left', 300, 50)
+        context.fillText('S - Right', 300, 70)
+        context.fillText('D - Backward', 300, 90)
+        context.fillText('Space - Ascent', 300, 110)
+        context.fillText('Shift+Space - Descent', 300, 130)
+        context.fillText('Left Mouse - Break', 300, 150)
+        context.fillText('Right Mouse - Place', 300, 170)
+        context.fillText('Ctrl+R - Reset', 300, 190)
+
 
         // crosshair 
         context.beginPath()
@@ -143,6 +164,14 @@ export class World {
             return
         }
         this.voxels[index] = new Voxel(x, y, z)
+    }
+
+    setVoxel(x, y, z, voxelTessellator) {
+        var index = this.getIndex(x, y, z)
+        if (index < 0 || index >= this.voxels.length) {
+            return
+        }
+        this.voxels[index] = voxelTessellator(x, y, z)
     }
 
     getVoxel(x, y, z) {

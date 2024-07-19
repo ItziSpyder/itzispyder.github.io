@@ -4,6 +4,7 @@ import { Vector } from './math/vector.js'
 import * as Buffer from './render/buffer.js'
 import * as math from './math/math.js'
 import { World } from './objects/world.js'
+import * as Blocks from './objects/blocks.js'
 
 const canvas = document.getElementById('canvas')
 const context = canvas.getContext('2d')
@@ -32,7 +33,7 @@ var keyRight = false
 var keyForward = false
 var keyBackward = false
 var keyJump = false
-var cursorLock = true
+var keyDescent = false
 
 // render
 
@@ -83,22 +84,25 @@ function updatePosition() {
         horizontal = true
     }
 
-    var standingOn = camera.add(0, -height - 0.01, 0).round()
+    var standingOn = camera.add(0, -height - 0.001, 0).round()
 
     if (keyJump) {
-        dir = dir.add(0, 2, 0)
+        dir = dir.add(0, 1, 0)
     }
-    else if (world.getVoxel(standingOn.x, standingOn.y, standingOn.z) == null) {
+    if (keyDescent) {
         dir = dir.add(0, -1, 0)
     }
+    // else if (world.getVoxel(standingOn.x, standingOn.y, standingOn.z) == null) {
+    //     dir = dir.add(0, -1, 0)
+    // }
 
     var quatYaw = new Quaternion(1, 0, 0, 0).rotationY(math.toRadians(-yaw))
-    dir = quatYaw.transform(dir.mul(0.25, 0.25, 0.25))
+    dir = quatYaw.transform(dir.mul(0.15, 0.15, 0.15))
     var destVec = camera.addVec(new Vector(dir.x, dir.y, dir.z))
     var check = destVec.round()
     var collision = world.getVoxel(check.x, check.y, check.z) == null && world.getVoxel(check.x, check.y - 1, check.z) == null && world.getVoxel(check.x, check.y - 2, check.z) == null
 
-    if (!horizontal || collision) {
+    if (collision) {
         camera = destVec
     }
 }
@@ -124,14 +128,12 @@ document.body.addEventListener('mousedown', e => {
     }
     var target = world.crosshair
 
-    console.log(target)
-
     switch (e.buttons) {
         case 1:
             world.removeVoxel(target.hit.x, target.hit.y, target.hit.z)
             break
         case 2:
-            world.addVoxel(target.face.x, target.face.y, target.face.z)
+            world.setVoxel(target.face.x, target.face.y, target.face.z, Blocks.GRASS)
             break
     }
 })
@@ -155,7 +157,8 @@ document.body.addEventListener('keypress', e => {
             keyRight = true
             break
         case ' ':
-            keyJump = true
+            keyJump = !e.shiftKey
+            keyDescent = e.shiftKey
             break
         case 'q':
             cursorLock = !cursorLock
@@ -178,6 +181,7 @@ document.body.addEventListener('keyup', e => {
             keyRight = false
             break
         case ' ':
+            keyDescent = false
             keyJump = false
             break
     }

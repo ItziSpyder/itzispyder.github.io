@@ -1,6 +1,5 @@
 
 import { Vector } from '../math/vector.js'
-import * as math from '../math/math.js'
 
 export const MODE_LINES = 0
 export const MODE_QUADS = 1
@@ -40,7 +39,7 @@ export class Builder {
                 step = 4
                 break
             default:
-                throw new Error("draw mode is unspecified! (" + this.mode + ")")
+                throw new Error("draw mode not recognized! (" + this.mode + ")")
         }
 
         if (this.buffer.length < min) {
@@ -100,8 +99,8 @@ export class Builder {
         return this
     }
 
-    color(color) {
-        this.peek().color = color
+    color(newColor) {
+        this.peek().color = newColor
         return this
     }
 
