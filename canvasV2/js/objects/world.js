@@ -57,8 +57,11 @@ export class World {
             var ang = math.toRadians(deg)
             var cos = math.cos(ang)
             var sin = math.sin(ang)
-            var vec = new Vector(cos * 10, 10, sin * 10).round()
-            this.addVoxel(vec.x, vec.y, vec.z)
+
+            for (var radius = 8; radius <= 13; radius++) {
+                var vec = new Vector(cos * radius, 10, sin * radius).round()
+                this.addVoxel(vec.x, vec.y, vec.z)
+            }
         }
     }
 
@@ -124,6 +127,7 @@ export class World {
         context.fillText('Left Mouse - Break', 300, 150)
         context.fillText('Right Mouse - Place', 300, 170)
         context.fillText('Ctrl+R - Reset', 300, 190)
+        context.fillText('Z - Toggle Flight', 300, 210)
 
 
         // crosshair 

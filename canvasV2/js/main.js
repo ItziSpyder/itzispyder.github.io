@@ -34,6 +34,7 @@ var keyForward = false
 var keyBackward = false
 var keyJump = false
 var keyDescent = false
+var toggleFlight = true
 
 // render
 
@@ -65,6 +66,11 @@ function updateRotation() {
 function updatePosition() {
     var yaw = prevRotation[1]
     var dir = new Vector(0, 0, 0)
+    var force = false
+
+    // onground
+    var check = new Vector(camera.x, camera.y - height - 0.2, camera.z).round()
+    var onGround = world.getVoxel(check.x, check.y, check.z) != null
 
     if (keyLeft) {
         dir = dir.add(1, 0, 0)
@@ -78,10 +84,18 @@ function updatePosition() {
     if (keyBackward) {
         dir = dir.add(0, 0, 1)
     }
+    if ((keyLeft || keyRight || keyForward || keyBackward) && !toggleFlight && onGround) {
+        dir = dir.add(0, 1, 0)
+    }
 
     if (keyJump) {
         dir = dir.add(0, 1, 0)
+        force = onGround
     }
+    else if (!toggleFlight) {
+        dir = dir.add(0, -1, 0)
+    }
+
     if (keyDescent) {
         dir = dir.add(0, -1, 0)
     }
@@ -89,10 +103,10 @@ function updatePosition() {
     var quatYaw = new Quaternion(1, 0, 0, 0).rotationY(math.toRadians(-yaw))
     dir = quatYaw.transform(dir.mul(0.15, 0.15, 0.15))
     var destVec = camera.addVec(new Vector(dir.x, dir.y, dir.z))
-    var check = destVec.round()
-    var collision = world.getVoxel(check.x, check.y, check.z) == null && world.getVoxel(check.x, check.y - 1, check.z) == null && world.getVoxel(check.x, check.y - 2, check.z) == null
+    check = destVec.round()
+    var noCollision = world.getVoxel(check.x, check.y, check.z) == null && world.getVoxel(check.x, check.y - 1, check.z) == null && world.getVoxel(check.x, check.y - 2, check.z) == null
 
-    if (collision) {
+    if (noCollision || force) {
         camera = destVec
     }
 }
@@ -149,6 +163,10 @@ document.body.addEventListener('keypress', e => {
         case ' ':
             keyJump = !e.shiftKey
             keyDescent = e.shiftKey
+            break
+        case 'z':
+            toggleFlight = !toggleFlight
+            focalPoint.z = toggleFlight ? 0.01 : 0.015
             break
     }
 })
