@@ -124,9 +124,14 @@ document.body.addEventListener('mousedown', e => {
     }
     var target = world.crosshair
 
+    console.log(target)
+
     switch (e.buttons) {
         case 1:
-            world.removeVoxel(target.x, target.y, target.z)
+            world.removeVoxel(target.hit.x, target.hit.y, target.hit.z)
+            break
+        case 2:
+            world.addVoxel(target.face.x, target.face.y, target.face.z)
             break
     }
 })

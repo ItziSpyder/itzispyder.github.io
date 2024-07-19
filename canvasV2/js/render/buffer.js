@@ -44,7 +44,7 @@ export class Builder {
         }
 
         if (this.buffer.length < min) {
-            throw new Error("buffer is empty")
+            return
         }
 
         var stepCount = 0

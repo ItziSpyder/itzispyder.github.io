@@ -75,10 +75,12 @@ export class World {
         var test = []
         var target = this.raycast(camera, dir, 10, test)
         if (target != null) {
-            target = target.round()
+            var hit = target.hit
             this.crosshair = target
-            this.highlight(rotation, focalPoint, camera, buf, target.x, target.y, target.z)
+            this.highlight(rotation, focalPoint, camera, buf, hit.x, hit.y, hit.z)
         }
+
+        // this.highlight(rotation, focalPoint, camera, buf, camera.x, camera.y - 2, camera.z)
 
         // for (var i = 0; i < test.length; i++) {
         //     target = test[i]
@@ -188,12 +190,14 @@ export class World {
     }
 
     raycast(vecStart, vecDir, distance, test) {
-        for (var dist = 0; dist <= distance; dist++) {
+        for (var dist = 0; dist <= distance; dist += 0.2) {
             var point = vecStart.addVec(vecDir.mul(dist, dist, dist)).round()
             var voxel = this.getVoxel(point.x, point.y, point.z)
             test[dist] = point
+
             if (voxel != null) {
-                return point
+                var face = vecStart.addVec(vecDir.mul(dist - 0.2, dist - 0.2, dist - 0.2)).round()
+                return { hit: point, face: face }
             }
         }
         return null

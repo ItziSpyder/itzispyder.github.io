@@ -1,4 +1,5 @@
 
+import { Vector } from '../math/vector.js'
 import * as Buffer from '../render/buffer.js'
 
 export class Voxel {
@@ -8,9 +9,9 @@ export class Voxel {
     z = 0
 
     constructor(x, y, z) {
-        this.x = x
-        this.y = y
-        this.z = z
+        this.x = Math.floor(x)
+        this.y = Math.floor(y)
+        this.z = Math.floor(z)
     }
 
     render(world, rotation, focalPoint, camera, vertexConsumer) {
@@ -70,5 +71,9 @@ export class Voxel {
             vertexConsumer.vertex(i0, j1, k1)//.color('#00000040')
             vertexConsumer.vertex(i0, j0, k1)//.color('#00000040')
         }
+    }
+
+    center() {
+        return new Vector(this.x + 0.5, this.y + 0.5, this.z + 0.5)
     }
 }
