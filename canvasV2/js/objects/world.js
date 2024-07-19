@@ -10,6 +10,8 @@ export class World {
     frames = []
     frame = 0
     size = 0
+    
+    crosshair = null
 
     constructor(camera, size) {
         this.camera = camera
@@ -30,12 +32,6 @@ export class World {
                 }
             }
         }
-        // this.voxels.push(new Voxel(-1, -1, 5))
-        // this.voxels.push(new Voxel(0, -1, 5))
-        // this.voxels.push(new Voxel(1, -1, 5))
-        // this.voxels.push(new Voxel(0, -2, 5))
-        // this.voxels.push(new Voxel(0, -3, 5))
-        // this.voxels.push(new Voxel(0, -4, 5))
 
         this.fillVoxels(-10, 0, -10, 10, 0, 10)
         this.addVoxel(-1, 1, 5)
@@ -46,6 +42,8 @@ export class World {
         this.addVoxel(0, 4, 5)
 
         this.addVoxel(0, 1, 0)
+
+        this.addVoxel(0, 3, 0)
     }
 
     render(rotation, clientRotation, focalPoint, camera, buf) {
@@ -62,6 +60,7 @@ export class World {
         var target = this.raycast(camera, dir, 10, test)
         if (target != null) {
             target = target.round()
+            this.crosshair = target
             this.highlight(rotation, focalPoint, camera, buf, target.x, target.y, target.z)
         }
 

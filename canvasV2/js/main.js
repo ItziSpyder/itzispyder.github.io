@@ -108,6 +108,18 @@ function updateMouse(e) {
     updateRotation()
 }
 
+document.body.addEventListener('mousedown', e => {
+    if (world.crosshair == null) {
+        return
+    }
+    var target = world.crosshair
+
+    switch (e.buttons) {
+        case 1:
+            world.removeVoxel(target.x, target.y, target.z)
+            break
+    }
+})
 document.body.addEventListener('contextmenu', e => {
     e.preventDefault()
 })
