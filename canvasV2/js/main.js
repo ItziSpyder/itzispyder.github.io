@@ -21,6 +21,7 @@ var focalPoint = new Vector(view[0] / 2, view[1] / 2, 0.01)
 var rotation = new Quaternion(1, 0, 0, 0)
 var clientRotation = new Quaternion(1, 0, 0, 0)
 var camera = new Vector(0, 10, 0)
+var height = 2
 var world = new World(camera, 100)
 
 export var prevCursor = [null, null]
@@ -63,34 +64,43 @@ function updateRotation() {
 function updatePosition() {
     var yaw = prevRotation[1]
     var dir = new Vector(0, 0, 0)
+    var horizontal = false
 
     if (keyLeft) {
         dir = dir.add(1, 0, 0)
+        horizontal = true
     }
     if (keyRight) {
         dir = dir.add(-1, 0, 0)
+        horizontal = true
     }
     if (keyForward) {
         dir = dir.add(0, 0, -1)
+        horizontal = true
     }
     if (keyBackward) {
         dir = dir.add(0, 0, 1)
+        horizontal = true
     }
+
+    var standingOn = camera.add(0, -height - 0.25, 0).round()
+
     if (keyJump) {
-        if (camera.y <= 6) {
-            dir = dir.add(0, 2, 0)
-        }
-        else {
-            keyJump = false
-        }
+        dir = dir.add(0, 2, 0)
     }
-    else if (camera.y > 2) {
+    else if (world.getVoxel(standingOn.x, standingOn.y, standingOn.z) == null) {
         dir = dir.add(0, -1, 0)
     }
 
     var quatYaw = new Quaternion(1, 0, 0, 0).rotationY(math.toRadians(-yaw))
     dir = quatYaw.transform(dir.mul(0.25, 0.25, 0.25))
-    camera = camera.addVec(new Vector(dir.x, dir.y, dir.z))
+    var destVec = camera.addVec(new Vector(dir.x, dir.y, dir.z))
+    var check = destVec.round()
+    var collision = world.getVoxel(check.x, check.y, check.z) == null && world.getVoxel(check.x, check.y - 1, check.z) == null && world.getVoxel(check.x, check.y - 2, check.z) == null
+
+    if (!horizontal || collision) {
+        camera = destVec
+    }
 }
 
 function updateMouse(e) {
