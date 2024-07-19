@@ -2,6 +2,7 @@ import { Voxel } from "./voxel.js"
 import { Vector } from "../math/vector.js"
 import { Faces } from "./faces.js"
 import * as Buffer from "../render/buffer.js"
+import * as math from "../math/math.js"
 
 export class World {
 
@@ -16,14 +17,11 @@ export class World {
     constructor(camera, size) {
         this.camera = camera
         this.size = size
-        this.generate()
 
         for (var i = 0; i < 60; i++) {
             this.frames.push(0)
         }
-    }
 
-    generate() {
         var half = Math.floor(this.size * 0.5)
         for (var x = -half; x < half; x++) {
             for (var y = -half; y < half; y++) {
@@ -33,6 +31,10 @@ export class World {
             }
         }
 
+        this.generate()
+    }
+
+    generate() {
         this.fillVoxels(-10, 0, -10, 10, 0, 10)
         this.addVoxel(-1, 1, 5)
         this.addVoxel(0, 1, 5)
@@ -44,6 +46,20 @@ export class World {
         this.addVoxel(0, 1, 0)
 
         this.addVoxel(0, 3, 0)
+
+        // staircase
+
+        for (var step = 0; step < 10; step++) {
+            this.fillVoxels(10 + step, step, -10, 10 + step, step, 10)
+        }
+
+        for (var deg = 0; deg <= 360; deg++) {
+            var ang = math.toRadians(deg)
+            var cos = math.cos(ang)
+            var sin = math.sin(ang)
+            var vec = new Vector(cos * 10, 10, sin * 10).round()
+            this.addVoxel(vec.x, vec.y, vec.z)
+        }
     }
 
     render(rotation, clientRotation, focalPoint, camera, buf) {

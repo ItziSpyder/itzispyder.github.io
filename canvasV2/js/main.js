@@ -22,7 +22,7 @@ var rotation = new Quaternion(1, 0, 0, 0)
 var clientRotation = new Quaternion(1, 0, 0, 0)
 var camera = new Vector(0, 10, 0)
 var height = 2
-var world = new World(camera, 100)
+var world = new World(camera, 100) // world and world size
 
 export var prevCursor = [null, null]
 export var prevRotation = [0, 0]
@@ -83,7 +83,7 @@ function updatePosition() {
         horizontal = true
     }
 
-    var standingOn = camera.add(0, -height - 0.25, 0).round()
+    var standingOn = camera.add(0, -height - 0.01, 0).round()
 
     if (keyJump) {
         dir = dir.add(0, 2, 0)
