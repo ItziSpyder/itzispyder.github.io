@@ -52,9 +52,9 @@ export class Vector {
     }
 
     round() {
-        var x = Math.floor(this.x * 10) / 10
-        var y = Math.floor(this.y * 10) / 10
-        var z = Math.floor(this.z * 10) / 10
+        var x = Math.floor(this.x)
+        var y = Math.floor(this.y)
+        var z = Math.floor(this.z)
         return new Vector(x, y, z)
     }
 

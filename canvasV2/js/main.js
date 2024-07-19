@@ -84,7 +84,7 @@ function updatePosition() {
     }
 
     var quatYaw = new Quaternion(1, 0, 0, 0).rotationY(math.toRadians(-yaw))
-    dir = quatYaw.transform(dir)
+    dir = quatYaw.transform(dir.mul(0.25, 0.25, 0.25))
     camera = camera.addVec(new Vector(dir.x, dir.y, dir.z))
 }
 

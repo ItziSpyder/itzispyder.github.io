@@ -119,9 +119,7 @@ class Vertex {
     }
 
     project(quaternion, focalPoint, camera) {
-        // var scale = this.scale
-        // focalPoint = focalPoint.mul(1 / scale, 1 / scale, 1 / scale)
-        // camera = camera.mul(1 / scale, 1 / scale, 1 / scale)
+        camera = camera.mul(this.scale, this.scale, this.scale)
         var vector = new Vector(this.x, this.y, this.z).addVec(camera)
         vector = quaternion.transform(vector)
 

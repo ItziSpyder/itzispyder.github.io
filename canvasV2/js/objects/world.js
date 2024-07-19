@@ -18,18 +18,17 @@ export class World {
     }
 
     generate() {
-        var cam = this.camera
         for (var x = -10; x < 10; x++) {
             for (var z = -10; z < 10; z++) {
-                this.voxels.push(new Voxel(cam.x + x, cam.y, cam.z + z))
+                this.voxels.push(new Voxel(x, 0, z))
             }
         }
-        this.voxels.push(new Voxel(cam.x - 1, cam.y - 1, cam.z + 5))
-        this.voxels.push(new Voxel(cam.x + 0, cam.y - 1, cam.z + 5))
-        this.voxels.push(new Voxel(cam.x + 1, cam.y - 1, cam.z + 5))
-        this.voxels.push(new Voxel(cam.x + 0, cam.y - 2, cam.z + 5))
-        this.voxels.push(new Voxel(cam.x + 0, cam.y - 3, cam.z + 5))
-        this.voxels.push(new Voxel(cam.x + 0, cam.y - 4, cam.z + 5))
+        this.voxels.push(new Voxel(-1, -1, 5))
+        this.voxels.push(new Voxel(0, -1, 5))
+        this.voxels.push(new Voxel(1, -1, 5))
+        this.voxels.push(new Voxel(0, -2, 5))
+        this.voxels.push(new Voxel(0, -3, 5))
+        this.voxels.push(new Voxel(0, -4, 5))
     }
 
     render(rotation, focalPoint, camera, buf) {
@@ -75,7 +74,7 @@ export class World {
         var start = this.frames[(this.frame - samples) % this.frames.length]
         var elapsed = (end - start) / samples
         var fps = 1000 / elapsed
-        return Math.floor(fps * 10) / 10
+        return Math.floor(fps)
     }
 
     clear() {
