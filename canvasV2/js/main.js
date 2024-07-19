@@ -19,8 +19,9 @@ canvas.height = view[1]
 
 var focalPoint = new Vector(view[0] / 2, view[1] / 2, 0.01)
 var rotation = new Quaternion(1, 0, 0, 0)
-var camera = new Vector(0, 2, 0)
-var world = new World(camera)
+var clientRotation = new Quaternion(1, 0, 0, 0)
+var camera = new Vector(0, 10, 0)
+var world = new World(camera, 100)
 
 export var prevCursor = [null, null]
 export var prevRotation = [0, 0]
@@ -35,11 +36,11 @@ var cursorLock = true
 // render
 
 var buf = new Buffer.Builder(view, context)
-setInterval(renderFrame, 1000 / 60)
+setInterval(renderFrame, 1000 / 70)
 
 function renderFrame() {
     buf.clear()
-    world.render(rotation, focalPoint, camera, buf)
+    world.render(rotation, clientRotation, focalPoint, camera, buf)
     world.renderHud(context, focalPoint, camera, prevRotation[0], prevRotation[1])
     renderTick()
 }
@@ -53,6 +54,10 @@ function updateRotation() {
     var quatPitch = quatZero.rotationX(math.toRadians(prevRotation[0]))
     var quatYaw = quatZero.rotationY(math.toRadians(prevRotation[1]))
     rotation = quatPitch.mul(quatYaw)
+
+    quatPitch = quatZero.rotationX(math.toRadians(-prevRotation[0]))
+    quatYaw = quatZero.rotationY(math.toRadians(-prevRotation[1]))
+    clientRotation = quatYaw.mul(quatPitch)
 }
 
 function updatePosition() {

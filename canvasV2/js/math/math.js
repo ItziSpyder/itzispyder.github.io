@@ -11,16 +11,8 @@ export function toDegrees(angleRad) {
     return angleRad * 180 / PI
 }
 
-export function min(a, b) {
-    return a < b ? a : b
-}
-
-export function max(a, b) {
-    return a > b ? a : b
-}
-
 export function clamp(a, minVal, maxVal) {
-    return max(minVal, min(maxVal, a))
+    return Math.max(minVal, Math.min(maxVal, a))
 }
 
 export function lerp(a, b, delta) {

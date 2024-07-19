@@ -4,6 +4,7 @@ import * as math from '../math/math.js'
 
 export const MODE_LINES = 0
 export const MODE_QUADS = 1
+export const MODE_QUAD_LINES = 2
 
 export class Builder {
 
@@ -34,8 +35,12 @@ export class Builder {
                 min = 4
                 step = 4
                 break
+            case MODE_QUAD_LINES:
+                min = 4
+                step = 4
+                break
             default:
-                throw new Error("draw mode is unspecified!")
+                throw new Error("draw mode is unspecified! (" + this.mode + ")")
         }
 
         if (this.buffer.length < min) {
@@ -73,6 +78,9 @@ export class Builder {
                     case MODE_QUADS:
                         this.context.fill()
                         break
+                    case MODE_QUAD_LINES:
+                        this.context.stroke()
+                        break
                 }
             }
 
@@ -88,7 +96,7 @@ export class Builder {
     }
 
     vertex(x, y, z) {
-        this.buffer.push(new Vertex(x, y, z, this.scale, 'white'))
+        this.buffer.push(new Vertex(x, y, z, this.scale, '#00000080'))
         return this
     }
 
@@ -120,7 +128,7 @@ class Vertex {
 
     project(quaternion, focalPoint, camera) {
         camera = camera.mul(this.scale, this.scale, this.scale)
-        var vector = new Vector(this.x, this.y, this.z).addVec(camera)
+        var vector = new Vector(-this.x, -this.y, -this.z).addVec(camera)
         vector = quaternion.transform(vector)
 
         var focal = focalPoint.z
