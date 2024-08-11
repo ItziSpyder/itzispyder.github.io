@@ -13,6 +13,7 @@ on tick if playing if holding #experience {
 ```
 
 ```
+// @wither123go
 def module all-items-kb
 def desc KB for CPvP
 
@@ -26,6 +27,7 @@ on left_click {
 ```
 
 ```
+// @itzispyder
 def module sword-hit
 def desc "Guarantees you hit your opponents with a sword"
 
@@ -37,6 +39,7 @@ on left_click if playing {
 ```
 
 ```
+// @itzispyder
 def module middle-click-pearl
 def desc "Middle click your mouse to throw a pearl"
 
@@ -61,6 +64,7 @@ on right_click if playing {
 ```
 
 ```
+// @itzispyder
 def module fireball
 def desc "Shoots entities when you right click. Change the summon command to change the entities that you shoot."
 
@@ -103,6 +107,7 @@ on right_click if playing wait 0.05 while 0.05 input_active use {
 ```
 
 ```
+// @itzispyder
 def module double-clicker
 def desc "Clicks a second time when you release your mouse"
 
@@ -116,6 +121,7 @@ on right_release if playing {
 ```
 
 ```
+// @itzispyder
 def module new-world
 def desc "Use this script to help set up new creative worlds."
 
@@ -137,6 +143,7 @@ on key_press - if playing execute_period 0.05 {
 ```
 
 ```
+// @itzispyder
 def module coherent-trigger-bot
 def desc "Coherent Client's Trigger Bot"
 

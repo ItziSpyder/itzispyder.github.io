@@ -1,6 +1,7 @@
 
 
 ```
+// @wither123go
 def module obi-switcher
 def desc "Custom Scripted Module"
 
@@ -8,6 +9,7 @@ on tick if playing if input_active use if holding #sword,#crystal if targeting_b
 ```
 
 ```
+// @wither123go
 def module CW-CRYSTALS-LEGIT
 def desc CW CRYSTALS LEGIT LOOKING
 
@@ -20,6 +22,7 @@ on tick if playing if holding #crystal if target_block :obsidian {
 ```
 
 ```
+// @itzispyder
 def module no-weak
 def desc "Allows crystalling even if you have weakness"
 
@@ -39,6 +42,7 @@ on left_click if playing {
 ```
 
 ```
+// @itzispyder
 def module auto-crystal
 def desc "Auto detonates end crystals"
 
