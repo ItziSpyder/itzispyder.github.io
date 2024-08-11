@@ -1,4 +1,48 @@
 
+```
+def module anchor-place
+def desc "Places a fully charged anchor when you right click your sword"
+
+on place_block {
+    if holding #anchor if hotbar_has #glowstone {
+        switch #glowstone
+    }
+}
+
+on right_click if playing {
+    if holding #glowstone if_not target_block #anchor {
+        switch #anchor
+    }
+    if hotbar_has #glowstone if holding #anchor if target_block #anchor {
+        switch #glowstone
+    }
+    if holding #sword if_not target_block #anchor if_not target_block #air {
+        switch #anchor
+        input use
+    }
+}
+
+on interact_block {
+    if holding #glowstone if target_block #anchor {
+        switch #sword
+    }
+}
+```
+
+```
+def module safe-anchor-y
+def desc Press "Y" for safe anchor
+
+on key_press Y if targeting_block !if target_block #air switch #anchor then input right then wait 0.05 then switch :glowstone then input right then wait 0.05 then input sneak then wait 0.05 then input right then wait 0.05 switch #totem
+on tick if holding #glowstone_dust wait 0.05 then switch #glowstone
+```
+
+```
+def module 2-anchor-key
+def desc Press N and double anchor with the speed of light
+
+on key_press N if playing wait 0.05 then switch #anchor then input right then wait 0.05 then switch #glowstone then input right then wait 0.05 then switch #anchor then loop 2 input right then wait 0.05 then switch #glowstone then input right then wait 0.05 then switch #anchor then input right
+```
 
 ```
 module create anchor-place;

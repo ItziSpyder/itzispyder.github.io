@@ -1,6 +1,44 @@
 
 
 ```
+def module obi-switcher
+def desc "Custom Scripted Module"
+
+on tick if playing if input_active use if holding #sword,#crystal if targeting_block !if target_block #air,:charged_respawn_anchor wait 0.001 switch #obsidian then input right
+```
+
+```
+def module CW-CRYSTALS-LEGIT
+def desc CW CRYSTALS LEGIT LOOKING
+
+on tick if playing if holding #crystal if target_block :obsidian {
+  input right
+  wait 0.05 if target_entity :end_crystal {
+    input left 
+  }
+}
+```
+
+```
+def module no-weak
+def desc "Allows crystalling even if you have weakness"
+
+on left_click if playing {
+    if target_entity #crystal if holding #crystal if hotbar_has #sword {
+        if effect_duration #weak >0 {
+            switch #sword
+
+            wait 0.05 if_not targeting_entity {
+                if holding #sword {
+                    switch back
+                }
+            }
+        }
+    }    
+}
+```
+
+```
 def module auto-crystal
 def desc "Auto detonates end crystals"
 

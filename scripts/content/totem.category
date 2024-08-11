@@ -1,6 +1,17 @@
 
 
 ```
+def module auto-totem
+def desc "Most blatant one ever"
+
+on totem_pop if playing {
+    if inventory_has #totem {
+        gui_swap #totem
+    }
+}
+```
+
+```
 def module legit-auto-totem
 def desc "Automatically replenishes your totems in your inventory"
 
