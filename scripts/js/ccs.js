@@ -1,35 +1,78 @@
 const title = document.getElementById('categoryTitle')
 const scriptsContainer = document.getElementById('scripts')
 const formatter = new Compressor()
+const searchbar = document.getElementById('searchbar')
 
-var currentCategory = updateCategory('crystal')
 var currentScripts = []
 var currentScriptDisplays = []
+var currentCategory = updateCategory('all')
 
 document.addEventListener('click', e => {
     if (e.target.getAttribute('id') == 'navButton') {
         updateCategory(e.target.innerText)
     }
 })
+document.addEventListener('keyup', e => {
+    if (document.activeElement == searchbar) {
+        filterScripts()
+    }
+})
+
+function filterScripts() {
+    scriptsContainer.innerHTML = ''
+    var query = searchbar.value.toLowerCase()
+    var count = 0
+
+    console.log('filtering query: ' + query)
+
+    for (var i = 0; i < currentScriptDisplays.length; i++) {
+        var s = currentScriptDisplays[i]
+        if (s.innerText.toLowerCase().includes(query)) {
+            count++
+            scriptsContainer.appendChild(s)
+        }
+    }
+
+    title.innerText = captialize(currentCategory) + ' Scripts ' 
+                        + (searchbar.value.length == 0 ? '' : 'for "' + searchbar.value + '"')
+}
 
 function updateCategory(newCategory) {
+    currentScripts = []
+    currentScriptDisplays = []
+    scriptsContainer.innerHTML = ''
+
+    if (newCategory.toLowerCase() == 'all') {
+        fetchCategory('anchor')
+        fetchCategory('crystal')
+        fetchCategory('hacks')
+        fetchCategory('macros')
+        fetchCategory('totem')
+        currentCategory = 'all'
+        filterScripts()
+        return currentCategory
+    }
+
     currentCategory = newCategory.toLowerCase()
     title.innerText = captialize(currentCategory) + ' Scripts'
     fetchCategory()
+    filterScripts()
     return currentCategory
 }
 
-function fetchCategory() {
-    fetch('./scripts/content/' + currentCategory + '.category')
+function fetchCategory(category) {
+    var cat = category != null ? category : currentCategory
+    var link = './scripts/content/' + cat + '.category'
+    console.log('fetching data from: ' + link)
+
+    fetch(link)
     .then(res => res.text())
     .then(res => parseFile(formatter.decompress(res)))
 }
 
-async function parseFile(fileContents) {
+function parseFile(fileContents) {
     var scripts = fileContents.split(/^```/gm).filter(s => s != null && s.trim().length != 0)
-    currentScripts = []
-    currentScriptDisplays.forEach(s => scriptsContainer.removeChild(s))
-    currentScriptDisplays = []
+    var query = searchbar.value.toLowerCase()
     
     for (var i = 0; i < scripts.length; i++) {
         var script = scripts[i]
@@ -39,17 +82,29 @@ async function parseFile(fileContents) {
         code = `
         <p id="title">` + script.name + `</p>
         <p id="desc">` + script.desc + `</p>
-        <textarea id="contents">` + script.contents + `</textarea>
+        <textarea id="contents" style="cursor:pointer;">` + script.contents + `</textarea>
         `
-
-        console.log(code)
 
         var div = document.createElement('div')
         div.setAttribute('id', 'script')
         div.innerHTML = code
-        scriptsContainer.appendChild(div)
+        addScriptDisplayListener(div)
+
+        if ((script.name + script.desc).toLowerCase().includes(query)) {
+            scriptsContainer.appendChild(div)
+        }
         currentScriptDisplays.push(div)
     }
+}
+
+function addScriptDisplayListener(div) {
+    div.addEventListener('click', e => {
+        var contents = div.querySelector('textarea#contents')
+        contents.select()
+        contents.setSelectionRange(0, 999999)
+        navigator.clipboard.writeText(contents.value)
+        console.log(div)
+    })
 }
 
 function parseHTMLlines(str) {
@@ -115,9 +170,5 @@ class Script {
         this.name = name
         this.desc = desc
         this.contents = contents
-    }
-
-    canSearch(query) {
-        return (this.name + this.desc + this.contents).toLowerCase().contains(query)
     }
 }
