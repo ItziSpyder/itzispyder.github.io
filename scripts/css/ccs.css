@@ -11,22 +11,32 @@ body {
 nav {
     background-color: var(--nav-color);
     color: white;
+    padding-bottom: 10px;
 }
-nav span#title {
+nav div#title {
     font-size: 20px;
     font-weight: bolder;
+    padding-top: 20px;
     padding-left: 20px;
     padding-right: 10px;
+    text-align: center;
 }
-nav div#buttons {
+nav img#icon {
+    width: 40px;
     display: inline-block;
+    vertical-align: middle;
+    transform: rotateZ(-12deg);
 }
 nav button {
     background-color: var(--nav-color);
     border: none;
+    border-radius: 4px;
     font-size: 18px;
     color: white;
-    padding: 20px;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
     cursor: pointer;
 }
 nav button:hover {
