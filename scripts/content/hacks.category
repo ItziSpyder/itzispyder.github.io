@@ -1,6 +1,18 @@
 
 
 ```
+// @practice
+def module aim_at_nearest_player
+def desc "Aims towards the nearest player."
+
+on tick if playing {
+    if entity_in_range :player 5 {
+        turn_to nearest_entity :player
+    }
+}
+```
+
+```
 // @itzispyder
 def module flight
 def desc "Fake flight from walmart"

@@ -2,6 +2,33 @@
 
 ```
 // @itzispyder
+def module auto-d-hand
+def desc "holds a second totem when above crystal"
+
+on tick if playing if hotbar_has #totem if entity_in_range :player 5 {
+    if entity_in_range #crystal 5 if block ~ ~-1 ~ #air {
+        switch #totem
+    }
+    if block_in_range :charged_respawn_anchor 5 {
+        switch #totem
+    }
+}
+```
+
+```
+// @itzispdyer
+def module double-totem
+def desc "swap to double"
+
+on totem_pop execute_period 0.05 {
+  gui_swap #totem 
+  gui_quickmove #totem 7
+  switch #totem
+}
+```
+
+```
+// @itzispyder
 def module auto-totem
 def desc "Most blatant one ever"
 

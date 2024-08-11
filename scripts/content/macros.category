@@ -1,6 +1,47 @@
 
 
 ```
+// @itzispyder
+module create tp-auto 
+description Auto accept tpa 
+
+on chat_receive "/tpaccept" {
+    say "/tpaccept"
+}
+```
+
+```
+// @itzispyder
+def module respawn-sprint
+def desc "Respawn sprint reset fix"
+
+on respawn wait 1 {
+    input sprint
+}
+```
+
+```
+// @itzispyder
+def module potion-swap
+def desc "Right click with sword to switch to hotbar potion"
+
+on right_click !if in_screen {
+    if holding #sword if hotbar_has #splash_potion {
+        switch #splash_potion
+        wait 0.05 switch back
+    }
+}
+```
+
+```
+// @i-no-one
+module create quick-elytra
+description Press i to fly with elytra
+
+on key_press i if hotbar_has #firework switch :elytra then input use then switch #rocket then input jump then wait 0.2 input jump then wait 0.1 input use then send firework used
+```
+
+```
 // @vgs
 def module fast-exp
 def desc "Uses experience bottles quickly while holding right-click"
