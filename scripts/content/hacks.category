@@ -1,0 +1,24 @@
+
+
+```
+def module dual-boost
+def desc "Left CTRL to boost forward, Right CTRL to backwards"
+
+on key_press left_control if playing {
+    velocity ^ ^ ^3
+}
+
+on key_press right_control if playing {
+    velocity ^ ^ ^-3
+}
+```
+
+```
+def module air-jump
+def desc "Allows you to jump while being in the air. You can edit the 0.5 to a higher value for higher jumps."
+
+on key_press space if playing {
+   velocity ~ 0.5 ~
+}
+
+```
