@@ -11,6 +11,10 @@ document.addEventListener('click', e => {
     if (e.target.getAttribute('id') == 'navButton') {
         updateCategory(e.target.innerText)
     }
+    if (e.target == searchbar) {
+        searchbar.select()
+        searchbar.setSelectionRange(0, 999999)
+    }
 })
 document.addEventListener('keyup', e => {
     if (document.activeElement == searchbar) {
