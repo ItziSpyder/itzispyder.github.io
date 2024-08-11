@@ -1,6 +1,7 @@
 
 
 ```
+// @itzispyder
 def module flight
 def desc "Fake flight from walmart"
 
@@ -28,6 +29,7 @@ on tick {
 ```
 
 ```
+// @itzispyder
 def module dual-boost
 def desc "Left CTRL to boost forward, Right CTRL to backwards"
 
@@ -41,6 +43,7 @@ on key_press right_control if playing {
 ```
 
 ```
+// @itzispyder
 def module air-jump
 def desc "Allows you to jump while being in the air. You can edit the 0.5 to a higher value for higher jumps."
 

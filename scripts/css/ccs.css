@@ -72,6 +72,11 @@ nav button:hover {
 }
 #script #title {
     font-size: 20px;
+    width: fit-content;
+    display: inline-block;
+}
+#script #desc {
+    margin-top: 0px;
 }
 #script #contents {
     background-color: rgb(83, 83, 83);
@@ -84,6 +89,11 @@ nav button:hover {
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 6.9420px;
+}
+#script #author {
+    color: rgb(155, 155, 155);
+    display: inline-block;
+    margin-left: 5px;
 }
 
 @keyframes spawn {

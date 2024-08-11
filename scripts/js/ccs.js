@@ -27,8 +27,6 @@ function filterScripts() {
     var query = searchbar.value.toLowerCase()
     var count = 0
 
-    console.log('filtering query: ' + query)
-
     for (var i = 0; i < currentScriptDisplays.length; i++) {
         var s = currentScriptDisplays[i]
         if (s.innerText.toLowerCase().includes(query)) {
@@ -85,6 +83,7 @@ function parseFile(fileContents) {
         
         code = `
         <p id="title">` + script.name + `</p>
+        <span id="author">` + (script.author != null ? 'by ' + script.author : '') + `</span>
         <p id="desc">` + script.desc + `</p>
         <textarea id="contents" style="cursor:pointer;">` + script.contents + `</textarea>
         `
@@ -107,7 +106,6 @@ function addScriptDisplayListener(div) {
         contents.select()
         contents.setSelectionRange(0, 999999)
         navigator.clipboard.writeText(contents.value)
-        console.log(div)
     })
 }
 
@@ -127,9 +125,10 @@ function parseHTMLlines(str) {
 }
 
 function parseScript(script) {
-    var lines = script.split(/\n/gm).filter(s => s.match(/.*(def|module|desc).*/gm))
+    var lines = script.split(/\n/gm).filter(s => s.match(/.*(def|module|desc|\/{2}).*/gm))
     var name = 'Unnamed Module'
     var desc = 'No description provided'
+    var author = null
     var hasName = false
     var hasDesc = false
 
@@ -151,12 +150,19 @@ function parseScript(script) {
             desc = line
             hasDesc = true
         }
+        else if (line.match(/^\s*(\/{2})\s*@\s*.*$/gm) != null) {
+            console.log(line)
+            line = line.replaceAll(/^\s*(\/{2})\s*@\s*/gm, '')
+            line = captialize(line)
+            author = line
+        }
     }
-    return new Script(name, desc, script)
+    console.log('by ' + author)
+    return new Script(name, desc, author, script)
 }
 
 function captialize(str) {
-    var words = str.split(/[ \\/+_,-]/gm)
+    var words = str.toLowerCase().split(/[ \\/+_,-]/gm)
     var result = ''
     for (var i = 0; i < words.length; i++) {
         var str = words[i]
@@ -169,10 +175,12 @@ class Script {
     name
     desc
     contents
+    author
 
-    constructor(name, desc, contents) {
+    constructor(name, desc, author, contents) {
         this.name = name
         this.desc = desc
+        this.author = author
         this.contents = contents
     }
 }

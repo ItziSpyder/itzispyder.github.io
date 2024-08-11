@@ -1,6 +1,7 @@
 
 
 ```
+// @vgs
 def module fast-exp
 def desc "Uses experience bottles quickly while holding right-click"
 
