@@ -34,12 +34,21 @@ on right_click !if in_screen {
 ```
 
 ```
-// @i-no-one
-module create quick-elytra
-description Press i to fly with elytra
+//@i-no-one
+def module create quick-elytra
+def desc Press i to fly with elytra
 
-on key_press i if hotbar_has #firework switch :elytra then input use then switch #rocket then input jump then wait 0.2 input jump then wait 0.1 input use then send firework used
-```
+on key_press i {
+    if hotbar_has #firework {
+        switch :elytra 
+        input use
+        switch #rocket
+        input jumps
+        wait 0.2 input jumps
+        wait 0.1 input use
+        send firework used
+    }
+}
 
 ```
 // @vgs
@@ -198,3 +207,36 @@ on tick if playing if target_entity :player,:armor_stand !if blocking {
     }
 }
 ```
+```
+//@i-no-one
+def module og-swaps
+def desc "Return The Old Totem2pearl And Totem2pearl Modules"
+
+on right_click {
+    if holding #sword {
+        switch #pearl
+        wait 0.02 input use
+        wait_random 0.03 0.08 switch back
+    }
+}
+
+on right_click {
+    if holding #totem {
+        switch #pearl
+        wait 0.02 input use
+        wait_random 0.03 0.08 switch back
+    }
+}
+```
+
+```
+//@i-no-one
+def module mace-swap 
+def desc "Return The Old Totem2pearl And Totem2pearl Modules"
+
+on right_click {
+    if holding #mace {
+        switch #pearl
+        wait 0.02 input use
+    }
+}

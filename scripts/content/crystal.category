@@ -3,9 +3,24 @@
 ```
 // @wither123go
 def module obi-switcher
-def desc "Custom Scripted Module"
+def desc "obi switch"
 
-on tick if playing if input_active use if holding #sword,#crystal if targeting_block !if target_block #air,:charged_respawn_anchor wait 0.001 switch #obsidian then input right
+on tick {
+    if playing {
+        if input_active use {
+            if holding #sword, #crystal {
+                if targeting_block {
+                    if !if target_block #air, :charged_respawn_anchor {
+                        wait 0.02
+                        switch #obsidian
+                        input right
+                    }
+                }
+            }
+        }
+    }
+}
+
 ```
 
 ```
