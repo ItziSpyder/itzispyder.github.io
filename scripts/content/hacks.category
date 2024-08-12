@@ -63,3 +63,22 @@ on key_press space if playing {
    velocity ~ 0.5 ~
 }
 ```
+```
+//@i-no-one
+def module mace-hacks
+def desc "no fall maybe be needed"
+
+on tick {
+    if holding #mace {
+        velocity ~ -0.5 ~
+        on key_press j {
+            velocity ~ 2 ~
+        }
+    }
+}
+on tick if playing if target_entity :player,:armor_stand !if blocking if holding #mace {
+   if attack_progress >=0.9 if chance_of 75 {      
+      input left
+   }
+}
+```
