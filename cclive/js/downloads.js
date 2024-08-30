@@ -11,7 +11,7 @@ const headers = {
 var dlsCurseForge = 0;
 var dlsModrinth = 0;
 var dlsGitHub = 0;
-var dlsPlanetMC = 0;
+var dlsPlanetMC = 8454; // hardcoded until I find a fix for CORS error, last updated 8/30/2024
 
 function getDownloads() {
     return {
