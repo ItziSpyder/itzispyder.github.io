@@ -7,6 +7,7 @@ const lastRefreshText = document.querySelector('#since-last-refresh');
 const curseforgeDlt = document.querySelector('#curseforge #sub-download-text');
 const modrinthDlt = document.querySelector('#modrinth #sub-download-text');
 const githubDlt = document.querySelector('#github #sub-download-text');
+const planetmcDlt = document.querySelector('#planetmc #sub-download-text');
 
 var timeUtilNextFetch = 15;
 var lastFetch = 0;
@@ -30,6 +31,7 @@ function update() {
     curseforgeDlt.innerText = formatNumber(dls.curseforge);
     modrinthDlt.innerText = formatNumber(dls.modrinth);
     githubDlt.innerText = formatNumber(dls.github);
+    planetmcDlt.innerText = formatNumber(dls.planetmc); // hardcoded until I find a fix for CORS error, last updated 8/30/2024
 }
 
 function tickAPIFetch() {
