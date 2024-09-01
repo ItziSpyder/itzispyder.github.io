@@ -6,7 +6,7 @@ const CF_KEY = '$2a$10$Sfn.ovCOUBg24FD1sBI/fe2cuWc2p/o6o7tVpWtNcnfDcyfjaqxTC';
 const CURSEFORGE = 'https://api.curseforge.com/v1/mods/946253';
 const CURSEFORGE_2 = 'https://api.curse.tools/v1/cf/mods/946253';
 const MODRINTH = 'https://api.modrinth.com/v2/project/clickcrystals';
-const GITHUB = 'https://api.github.com/repos/clickcrystals-development/ClickCrystals/releases';
+const GITHUB = 'https://api.github.com/repos/clickcrystals-development/ClickCrystals/releases?per_page=10000';
 const PLANETMC = 'https://www.planetminecraft.com/mod/clickcrystal';
 
 const headers = {
