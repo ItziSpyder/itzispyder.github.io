@@ -6,7 +6,7 @@ const CF_KEY = '$2a$10$Sfn.ovCOUBg24FD1sBI/fe2cuWc2p/o6o7tVpWtNcnfDcyfjaqxTC';
 const CURSEFORGE = 'https://api.curseforge.com/v1/mods/946253';
 const CURSEFORGE_2 = 'https://api.curse.tools/v1/cf/mods/946253';
 const MODRINTH = 'https://api.modrinth.com/v2/project/clickcrystals';
-const GITHUB = 'https://api.github.com/repos/clickcrystals-development/ClickCrystals/releases?per_page=10000';
+const GITHUB = 'https://api.github.com/repos/clickcrystals-development/ClickCrystals/releases?per_page=100';
 const PLANETMC = 'https://www.planetminecraft.com/mod/clickcrystal';
 
 const headers = {
@@ -65,21 +65,28 @@ async function getModrinth(done) {
 }
 
 async function getGitHub(done) {
-    fetch(GITHUB, headers)
-    .then(res => res.json())
-    .then(res => {
-        var count = 0;
-        for (var i = 0; i < res.length; i++) {
-            var release = res[i];
-            for (var j = 0; j < release.assets.length; j++) {
-                var asset = release.assets[j];
-                count += asset.download_count;
-            }
+    dlsGitHub = await getGitHubInternal(1);
+    console.log(dlsGitHub);
+    done();
+}
+
+async function getGitHubInternal(pageNumber) {
+    var count = 0;
+    var res = await fetch(GITHUB + '&page=' + pageNumber, headers);
+    res = await res.json();
+    var fetchAgain = res.length == 100;
+
+    for (var i = 0; i < res.length; i++) {
+        var release = res[i];
+        for (var j = 0; j < release.assets.length; j++) {
+            var asset = release.assets[j];
+            count += asset.download_count;
         }
-        dlsGitHub = count;
-        console.log(count);
-        done();
-    })
+    }
+
+    if (fetchAgain) 
+        count += await getGitHubInternal(pageNumber + 1);
+    return count;
 }
 
 async function getPlanetMC(done) {
