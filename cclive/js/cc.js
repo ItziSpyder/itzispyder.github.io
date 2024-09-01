@@ -31,7 +31,7 @@ function update() {
     curseforgeDlt.innerText = formatNumber(dls.curseforge);
     modrinthDlt.innerText = formatNumber(dls.modrinth);
     githubDlt.innerText = formatNumber(dls.github);
-    planetmcDlt.innerText = formatNumber(dls.planetmc); // hardcoded until I find a fix for CORS error, last updated 8/30/2024
+    planetmcDlt.innerText = formatNumber(dls.planetmc);
 }
 
 function tickAPIFetch() {
