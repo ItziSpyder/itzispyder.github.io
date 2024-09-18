@@ -39,6 +39,8 @@ Games:
     Minecraft: https://classic.minecraft.net/
     Canvas v2: https://itzispyder.github.io/canvas/v2
     Canvas v1: https://itzispyder.github.io/canvas/v1
+    Slowroads Driving: https://slowroads.io
+    Final Earth II: https://www.coolmathgames.com/0-the-final-earth-2/play
 
 Unicodes and Symbols:
     Text Font Generator: https://fsymbols.com/generators/smallcaps/
