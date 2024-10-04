@@ -48,6 +48,8 @@ function readMarkdown(str) {
             }
         }
     }
+    if (currentField != null)
+        fields.push(currentField);
 
     return new Ann(title, desc, fields);
 }
@@ -73,3 +75,5 @@ class Field {
         this.desc = desc;
     }
 }
+
+onKeyPress(null);
