@@ -1,13 +1,37 @@
 
 const input = document.getElementById('input');
 const output = document.getElementById('output');
+const button = document.getElementById('format-button');
+const copy = document.getElementById('copy-button');
+
+var formatToggle = false;
 
 document.addEventListener('keyup', onKeyPress);
+button.addEventListener('click', toggleFormat);
+copy.addEventListener('click', copyToClipboard);
 
 function onKeyPress(e) {
+    copy.innerText = 'Copy';
     var ann = readMarkdown(input.value);
-    output.value = JSON.stringify(ann);
+    if (formatToggle) {
+        output.value = JSON.stringify(ann, 0, 3);
+    }
+    else {
+        output.value = JSON.stringify(ann);
+    }
 }
+
+function toggleFormat(e) {
+    formatToggle = !formatToggle;
+    output.style.textWrap = formatToggle ? 'nowrap' : 'balance';
+    button.innerText = formatToggle ? 'Condense' : 'Beautify';
+    onKeyPress(null)
+}
+
+function copyToClipboard(e) {
+    navigator.clipboard.writeText(output.value);
+    copy.innerText = 'Copied!';
+} 
 
 
 function readMarkdown(str) {
